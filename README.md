@@ -1,2 +1,2 @@
 # webmo21-backend
-Alex ist cool!
+Alex ist supercool!
