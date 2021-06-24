@@ -34,15 +34,15 @@ exports.up = function (knex) {
         .onDelete("RESTRICT")
         .onUpdate("CASCADE");
       table.string("name", 50).notNullable();
-      table.int("calendar_week").notNullable();
-      table.int("year").notNullable();
-      table.int("day_1");
-      table.int("day_2");
-      table.int("day_3");
-      table.int("day_4");
-      table.int("day_5");
-      table.int("day_6");
-      table.int("day_7");
+      table.integer("calendar_week").notNullable();
+      table.integer("year").notNullable();
+      table.json("day_1");
+      table.json("day_2");
+      table.json("day_3");
+      table.json("day_4");
+      table.json("day_5");
+      table.json("day_6");
+      table.json("day_7");
       table.timestamps(true, true);
     });
 };

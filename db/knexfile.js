@@ -1,11 +1,14 @@
 // Update with your config settings.
-require("dotenv").config();
+require("dotenv").config({ path: "../.env.local" });
+const parse = require("pg-connection-string").parse;
+const pgconfig = parse(process.env.DATABASE_URL);
+
+pgconfig.ssl = { rejectUnauthorized: false };
 
 module.exports = {
   development: {
     client: "pg",
-    connection: process.env.DATABASE_URL,
-    ssl: { rejectUnauthorized: false },
+    connection: pgconfig,
     useNullAsDefault: true,
     pool: {
       min: 2,
