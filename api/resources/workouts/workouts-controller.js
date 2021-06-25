@@ -48,7 +48,7 @@ const getAllWorkoutsByUserId = (req, res) => {
 
   if (user_id) {
     workoutsService
-      .findById(id)
+      .findWorkoutsByUserId(user_id)
       .then((workouts) => {
         workouts && workouts.length
           ? res.status(200).json({
