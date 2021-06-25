@@ -1,8 +1,18 @@
-const express = require("express");
-const router = require("./routes");
+const server = require("./server");
+const db = require("./db/db");
+require("dotenv").config();
 
-const app = express();
-app.use(express.json());
-app.use(router);
-
-app.listen(8080, () => console.log("server listening on port 8080"));
+server.listen(process.env.PORT || 5000, () =>
+  db
+    .raw("select 1")
+    .then(() => {
+      console.log("Connection to database successful.");
+      console.log(
+        `\n *** fitness time API server ${process.env.DEPLOYMENT} environment running on ${process.env.SERVER_URL} ***\n`
+      );
+    })
+    .catch((error) => {
+      console.log("Connection to database failed. ", error);
+      process.exit(1);
+    })
+);

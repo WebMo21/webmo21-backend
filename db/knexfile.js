@@ -1,5 +1,5 @@
 // Update with your config settings.
-require("dotenv").config({ path: "../.env.local" });
+require("dotenv").config({ path: "../.env" });
 const parse = require("pg-connection-string").parse;
 const pgconfig = parse(process.env.DATABASE_URL);
 
