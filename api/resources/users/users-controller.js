@@ -100,7 +100,7 @@ const addUser = (req, res) => {
 };
 
 const updateUser = (req, res) => {
-  const updateUserDTO = ({ name, email } = req.body);
+  const updateUserDTO = ({ name, email, is_active } = req.body);
 
   if (req.body.id && (name || email)) {
     usersService
