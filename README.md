@@ -1,5 +1,7 @@
 # Fitness Time Backend
 
+![Alt Text](./assets/img/backend-code-and-route-preview.gif)
+
 ## Development & Ideas
 
 ### Database Architecture
