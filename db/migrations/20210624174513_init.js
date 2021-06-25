@@ -4,6 +4,8 @@ exports.up = function (knex) {
       table.increments("id");
       table.string("email", 128).notNullable().unique();
       table.string("name", 128);
+      table.boolean("active").defaultTo("true");
+      table.boolean("is_admin").defaultTo("false");
       table.timestamps(true, true);
     })
     .createTable("workouts", (table) => {
