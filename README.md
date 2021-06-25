@@ -16,7 +16,7 @@ Users should be able to create custom workouts but also can select already creat
 During the design architecture some discussion about granularity came up but consensus was that each workoutplan is consisting of 7 possible workout days, a name, a year and which calender week it represents. In the backend users can be searched for all of their weekly_workout_plans and them sent to the frontend to be displayed in a calender view accordingly to their week. For each day there will be a json containing information about the individual workouts like tracking their completing, the real invested time, the scheduled time each of them should happen for the day and the id of the workout similar to this example:
 
 ```json
-  "day_1": {
+  "day_1": [
     { "workout_id": "17",
       "workout_completed": "no",
       "workout_tracked_time": "0",
@@ -29,20 +29,20 @@ During the design architecture some discussion about granularity came up but con
       "workout_time_start": "13:30",
       "workout_time_end": "13:45"
     }
-  },
-  "day_2": {
+  ],
+  "day_2": [
     { "workout_id": "13",
       "workout_completed": "no",
       "workout_tracked_time": "0",
       "workout_time_start": "11:00",
       "workout_time_end": "12:00"
     },
-  },
-  "day_3": {},
-  "day_4": {},
-  "day_5": {},
-  "day_6": {},
-  "day_7": {}
+  ],
+  "day_3": [],
+  "day_4": [],
+  "day_5": [],
+  "day_6": [],
+  "day_7": []
 ```
 
 ## Working with Knex.JS Query Builder

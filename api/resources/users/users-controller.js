@@ -138,8 +138,7 @@ const deleteUserById = (req, res) => {
   if (id) {
     usersService
       .removeById(id)
-      .then((successFlag) => {
-        console.log("RETURN VALUE", successFlag);
+      .then((successFlag) =>
         successFlag > 0
           ? res.status(200).json({
               message: "Der Nutzer wurde als inaktiv vermerkt.",
@@ -147,8 +146,8 @@ const deleteUserById = (req, res) => {
           : res.status(500).json({
               message:
                 "Der Nutzer konnte nicht gelöscht werden, da Fehler in der Datenbank auftraten.",
-            });
-      })
+            })
+      )
       .catch((error) => {
         console.log("Fehler beim Löschen des Nutzers. ", error);
         return res.status(500).json({

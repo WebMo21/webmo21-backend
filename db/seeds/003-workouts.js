@@ -16,6 +16,12 @@ exports.seed = function (knex) {
           repetition_count: "20",
           equipment_weight_in_kilo: "80",
         },
+        {
+          user_id: "1",
+          name: "Running",
+          muscle_group: "Legs",
+          duration_in_seconds: "3600",
+        },
       ]);
     });
 };
