@@ -2,7 +2,7 @@ exports.seed = function (knex) {
   return knex("workouts")
     .del()
     .then(function () {
-      return knex("users").insert([
+      return knex("workouts").insert([
         {
           user_id: "3",
           name: "Rowing",

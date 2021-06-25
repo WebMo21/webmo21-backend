@@ -59,6 +59,12 @@ npx knex migrate:make init --migrations-directory db/migrations
 npx knex migrate:latest --knexfile db/knexfile.js
 ```
 
+### Running Seed Files
+
+```bash
+npx knex seed:run --knexfile db/knexfile.js
+```
+
 ## Fixing SSL problems with Knex and Heroku PostgreSQL database
 
 Configure the heroku app with the config var/environment variable:
