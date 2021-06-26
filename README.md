@@ -1,6 +1,6 @@
 # 🏋️ Fitness Time - Workout Planner Backend
 
-A lightweigth backend enabling users scheduling and organization of fitness activities.
+A lightweight backend enabling users scheduling and organization of fitness activities.
 
 ![Alt Text](./assets/img/backend-code-and-route-preview.gif)
 
