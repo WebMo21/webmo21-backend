@@ -1,4 +1,27 @@
-# Fitness Time Backend
+# 🏋️ Fitness Time - Workout Planner Backend
+
+A lightweight backend enabling users scheduling and organization of fitness activities.
+
+![Alt Text](./assets/img/backend-code-and-route-preview.gif)
+
+## ✨ Features
+
+- Provides running Node.js Backend with REST API
+- Connection to Heroku database working and Fixed SSL error
+- File structure following principles of clean code has been implemented in good faith
+- Database migration files and example seeding data
+- Implemented full CRUD support for the 3 resources users, workouts and weekly-workout-plans with router, controller and service layer abstraction
+- REST API has API tests persisted within within the thunder-tests folder for documentation and execution
+- Provided structured documentation for the project
+
+## 🤖 Technologies
+
+- [Express.js](https://expressjs.com) node backend server running providing a fast & minimalist REST API
+
+- [Knex.js](http://knexjs.org) query builder used to handle migrations, seeding and connection to database
+- [PostgreSQL](https://www.postgresql.org) relational database connected with the help of free hosting on [Heroku](https://heroku.com)
+- Continuous Integration / Continuous Deployment Pipeline achieved with [Heroku](https://heroku.com)
+- [Thunder Client](https://www.thunderclient.io) as an alternative to Postman for version controlled and easy documented REST API tests
 
 ## Development & Ideas
 
