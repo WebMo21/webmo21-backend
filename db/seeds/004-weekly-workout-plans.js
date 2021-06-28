@@ -50,7 +50,7 @@ exports.seed = function (knex) {
           day_4: JSON.stringify([]),
           day_5: JSON.stringify([
             {
-              workout_id: "4",
+              workout_id: "1",
               workout_completed: "no",
               workout_tracked_time: "0",
               workout_time_start: "19:00",

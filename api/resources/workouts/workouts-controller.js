@@ -71,6 +71,34 @@ const getAllWorkoutsByUserId = (req, res) => {
   }
 };
 
+const getAllWorkoutsByUserEmail = (req, res) => {
+  const { email } = req.params;
+
+  if (email) {
+    workoutsService
+      .findWorkoutsByUserEmail(email)
+      .then((workouts) => {
+        workouts && workouts.length
+          ? res.status(200).json({
+              workouts,
+            })
+          : res.status(404).json({
+              message: "Es konnten keine Workouts gefunden werden.",
+            });
+      })
+      .catch((error) => {
+        console.log("Fehler beim Erhalten von Workouts. ", error);
+        return res.status(500).json({
+          message: "Fehler beim Erhalten vvon Workouts.",
+        });
+      });
+  } else {
+    return res.status(400).json({
+      message: "Fehler beim Erhalten von Workouts, da Angaben fehlen.",
+    });
+  }
+};
+
 const addWorkout = (req, res) => {
   const workoutDTO = ({
     user_id,
@@ -185,6 +213,7 @@ module.exports = {
   getAllWorkouts,
   getWorkoutById,
   getAllWorkoutsByUserId,
+  getAllWorkoutsByUserEmail,
   addWorkout,
   updateWorkout,
   deleteWorkout,

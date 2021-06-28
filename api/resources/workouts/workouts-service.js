@@ -24,6 +24,13 @@ const findWorkoutsByUserId = (user_id) =>
     )
     .where("w.user_id", user_id);
 
+// TODO: TEST!
+const findWorkoutsByUserEmail = (email) =>
+  db("users")
+    .where("email", email)
+    .first()
+    .then((user) => (user ? findWorkoutsByUserId(user.id) : null));
+
 const add = (workout) =>
   db("workouts")
     .insert(workout, "id")
@@ -37,6 +44,7 @@ module.exports = {
   find,
   findById,
   findWorkoutsByUserId,
+  findWorkoutsByUserEmail,
   add,
   update,
   remove,
