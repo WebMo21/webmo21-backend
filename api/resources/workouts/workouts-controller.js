@@ -50,7 +50,6 @@ const getAllWorkoutsByUserId = (req, res) => {
     workoutsService
       .findWorkoutsByUserId(user_id)
       .then((workouts) => {
-        console.log("workouts", workouts);
         workouts && workouts.length
           ? res.status(200).json({
               workouts,
