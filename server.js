@@ -9,6 +9,8 @@ const whitelist = [
   "http://localhost:3000",
   "http://localhost:3001",
   "https://fitness-time.vercel.app/",
+  "https://www.fitness-time.app/",
+  "https://fitness-time.app/",
 ];
 
 const corsOptions = {

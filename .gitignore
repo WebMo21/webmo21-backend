@@ -29,5 +29,7 @@ thunderclient.db~
 
 thunderEnvironment.db
 thunderEnvironment.db~
+thunderCollection.db~
 /thunder-tests/thunderEnvironment.db
 /thunder-tests/thunderEnvironment.db~
+/thunder-tests/thunderCollection.db~
