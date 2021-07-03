@@ -24,7 +24,12 @@ yarn-debug.log*
 yarn-error.log*
 
 # thunder-tests
+thunderclient.db~
+/thunder-tests/thunderclient.db~
+
 thunderEnvironment.db
 thunderEnvironment.db~
+thunderCollection.db~
 /thunder-tests/thunderEnvironment.db
 /thunder-tests/thunderEnvironment.db~
+/thunder-tests/thunderCollection.db~

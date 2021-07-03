@@ -50,5 +50,8 @@ exports.up = function (knex) {
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTable("users");
+  return knex.schema
+    .dropTable("workouts")
+    .dropTable("weekly_workout_plans")
+    .dropTable("users");
 };

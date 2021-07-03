@@ -100,9 +100,9 @@ const addUser = (req, res) => {
 };
 
 const updateUser = (req, res) => {
-  const updateUserDTO = ({ name, email, is_active } = req.body);
+  const updateUserDTO = ({ name, email, is_active, gender } = req.body);
 
-  if (req.body.id && (name || email)) {
+  if (req.body.id && (name || email || gender || is_active)) {
     usersService
       .update(req.body.id, updateUserDTO)
       .then((successFlag) =>
