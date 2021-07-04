@@ -190,6 +190,50 @@ const deleteUserByEmail = (req, res) => {
   }
 };
 
+// Compliant with https://next-auth.js.org/providers/credentials#example
+const loginAsAdmin = (req, res) => {
+  const adminLoginDTO = ({ username, password } = req.body);
+  console.log("BODY", req.body);
+
+  if (username && password) {
+    usersService
+      .loginAsAdmin(adminLoginDTO)
+      .then((user) => res.status(200).json({ user: user }))
+      .catch((error) => {
+        console.log("Fehler beim Einloggen des Admins. ", error);
+        return res.status(500).json({ user: "" });
+      });
+  } else {
+    return res.status(400).json({ user: "" });
+  }
+};
+
+// Utility function for admins
+const generateSaltedHash = (req, res) => {
+  const { password } = req.body;
+
+  if (password) {
+    usersService
+      .generateSaltedHash(password)
+      .then((saltedHash) => {
+        console.log("RETURN", saltedHash);
+        saltedHash
+          ? res.status(200).json(saltedHash)
+          : res
+              .status(401)
+              .json({ message: "Benutzername oder Passwort nicht gültig." });
+      })
+      .catch((error) => {
+        console.log("Fehler beim Erstellen des Salted Hash. ", error);
+        return res
+          .status(500)
+          .json({ message: "Fehler beim Erstellen des Salted Hash" });
+      });
+  } else {
+    return res.status(400).json({ message: "No password was provided" });
+  }
+};
+
 module.exports = {
   getAllUsers,
   getUserById,
@@ -198,4 +242,6 @@ module.exports = {
   updateUser,
   deleteUserById,
   deleteUserByEmail,
+  loginAsAdmin,
+  generateSaltedHash,
 };

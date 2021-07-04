@@ -13,6 +13,9 @@ const whitelist = [
   "https://www.fitness-time.app",
   "https://fitness-time.app/",
   "https://fitness-time.app",
+  "http://localhost:3000/auth/adminlogin",
+  "https://fitness-time.vercel.app/auth/adminlogin",
+  "https://www.fitness-time.app/auth/adminlogin",
 ];
 
 const corsOptions = {
