@@ -74,8 +74,8 @@ const loginAsAdmin = (adminLoginDTO) =>
 const generateSaltedHash = (password) =>
   new Promise((resolve, reject) => {
     const saltRounds = 12;
+    // Salts and hashes
     bcrypt.hash(password, saltRounds, function (err, hash) {
-      // Salts and hashes
       bcrypt.compare(password, hash, function (err, result) {
         if (result) {
           resolve(hash);
