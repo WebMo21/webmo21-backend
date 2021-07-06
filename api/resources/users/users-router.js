@@ -9,5 +9,7 @@ router.post("/", controller.addUser);
 router.put("/", controller.updateUser);
 router.delete("/id/:id", controller.deleteUserById);
 router.delete("/email/:email", controller.deleteUserByEmail);
+router.post("/admin-login", controller.loginAsAdmin);
+router.post("/generate-salted-hash", controller.generateSaltedHash);
 
 module.exports = router;
