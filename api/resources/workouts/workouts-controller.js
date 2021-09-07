@@ -43,7 +43,7 @@ const getWorkoutById = (req, res) => {
   }
 };
 
-const getAllWorkoutsByUserId = (req, res) => {
+const getAllWorkoutsByUserId = async (req, res) => {
   const { user_id } = req.params;
 
   if (user_id) {
