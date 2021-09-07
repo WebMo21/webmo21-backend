@@ -57,17 +57,19 @@ const loginAsAdmin = (adminLoginDTO) =>
                   gender: user.gender,
                 });
               } else {
-                reject(null);
+                console.log("ERROR NO RESULT", result, user);
+                reject(err);
               }
             }
           );
         } else {
-          reject(null);
+          console.log("Username not found");
+          reject("Username not found");
         }
       })
       .catch((error) => {
         console.log("Catch Error", error);
-        reject(null);
+        reject(error);
       });
   });
 

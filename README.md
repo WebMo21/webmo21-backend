@@ -68,6 +68,8 @@ During the design architecture some discussion about granularity came up but con
   "day_7": []
 ```
 
+## Performance
+
 ## Working with Knex.JS Query Builder
 
 ### Creating new migration files

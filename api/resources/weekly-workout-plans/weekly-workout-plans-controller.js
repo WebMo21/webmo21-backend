@@ -164,6 +164,8 @@ const updateWeeklyWorkoutPlan = (req, res) => {
     day_7,
   } = req.body);
 
+  console.log("BODY", req.body);
+
   if (
     req.body.id &&
     (name ||

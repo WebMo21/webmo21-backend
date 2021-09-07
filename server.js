@@ -35,9 +35,9 @@ server.use(logger("dev"));
 server.disable("etag");
 
 server.get("/", function rootHandler(req, res) {
-  res.send(
-    `Welcome to the ${process.env.DEPLOYMENT} environment API of fitness time!`
-  );
+  res.status(200).json({
+    message: `Welcome to the ${process.env.DEPLOYMENT} environment API of fitness time!`,
+  });
 });
 
 const UsersRouter = require("./api/resources/users/users-router");

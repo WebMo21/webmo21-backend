@@ -1,12 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const controller = require("./workouts-controller");
+const { authorizeUser } = require("../../middleware/Authorization");
 
-router.get("/", controller.getAllWorkouts);
-router.get("/:id", controller.getWorkoutById);
-router.get("/userid/:user_id", controller.getAllWorkoutsByUserId);
-router.post("/", controller.addWorkout);
-router.put("/", controller.updateWorkout);
+router.get("/", authorizeUser, controller.getAllWorkouts);
+router.get("/:id", authorizeUser, controller.getWorkoutById);
+router.get(
+  "/userid/:user_id",
+  authorizeUser,
+  controller.getAllWorkoutsByUserId
+);
+router.post("/", authorizeUser, controller.addWorkout);
+router.put("/", authorizeUser, controller.updateWorkout);
 router.delete("/:id", controller.deleteWorkout);
 
 module.exports = router;

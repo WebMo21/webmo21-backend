@@ -4,9 +4,20 @@ const getAllUsers = (req, res) =>
   usersService
     .find()
     .then((users) =>
-      res.status(200).json({
-        users,
-      })
+      res.status(200).json(
+        users.map((user) => ({
+          active: user.active,
+          created_at: user.created_at,
+          email: user.email,
+          email_verified: user.email_verified,
+          gender: user.gender,
+          id: user.id,
+          image: user.image,
+          name: user.name,
+          role: user.role,
+          username: user.username,
+        }))
+      )
     )
     .catch((error) => {
       console.log("Fehler beim Erhalten von allen Nutzern. ", error);
@@ -73,6 +84,9 @@ const getUserByEmail = (req, res) => {
 
 const addUser = (req, res) => {
   const userDTO = ({ name, email } = req.body);
+  {
+    console.log("I AM ADDING A USER", req.body);
+  }
 
   if (email) {
     usersService
@@ -83,7 +97,7 @@ const addUser = (req, res) => {
           name: newUser.name,
           email: newUser.email,
           active: newUser.active,
-          isAdmin: newUser.is_admin,
+          role: newUser.role,
         })
       )
       .catch((error) => {
@@ -100,9 +114,10 @@ const addUser = (req, res) => {
 };
 
 const updateUser = (req, res) => {
-  const updateUserDTO = ({ name, email, is_active, gender } = req.body);
+  const updateUserDTO = ({ name, email, active, gender, role } = req.body);
+  console.log("I AM UPDATING A USER", req.body);
 
-  if (req.body.id && (name || email || gender || is_active)) {
+  if (req.body.id && (name || email || gender || active.toString())) {
     usersService
       .update(req.body.id, updateUserDTO)
       .then((successFlag) =>
