@@ -68,6 +68,18 @@ During the design architecture some discussion about granularity came up but con
   "day_7": []
 ```
 
+### Workouts and Assigned Workouts
+
+Users can create individual workouts for themselves. From a architecture perspective there is a slight difference between workouts as they are and workouts which are assigned from a user and which data is saved where.
+
+#### Workouts
+
+Workouts are saved within the `workouts` table in the database. Elementary information about them are stored there which can be edited by the user in the specific view for that. These workouts act as building blocks that can be placed within many weeklyworkoutplans simultaneously. Thus it does not makes sense to store certain info in this table that belongs only to one individual weeklyworkoutplan for this workout but not to others like if it was completed in this week or at which time it starts and ends.
+
+#### Assigned Workouts
+
+To differentiate between workouts and workouts assigned into a specific weeklyworkoutplan extra information about a specific workout within this single week is stores within the `weekly_workout_plans` table in the JSON data of a specific day like `day_1`. Such data is weither this assigned workout was completed at which time it is scheduled to start and end and how long it took a user in reality.
+
 ## Performance
 
 ## Working with Knex.JS Query Builder

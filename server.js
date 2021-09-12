@@ -3,6 +3,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 const logger = require("morgan");
 const server = express();
+const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 const whitelist = [
@@ -28,6 +29,17 @@ const corsOptions = {
   },
 };
 
+const webmoSender = '"Sascha Majewsky" <s.majewsky93@gmail.com>';
+const webmoTransporter = nodemailer.createTransport({
+  host: process.env.EMAIL_SERVER_HOST,
+  port: process.env.EMAIL_SERVER_PORT,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_SERVER_USER,
+    pass: process.env.EMAIL_SERVER_PASSWORD,
+  },
+});
+
 server.use(cors(corsOptions));
 server.use(helmet());
 server.use(express.json());
@@ -38,6 +50,28 @@ server.get("/", function rootHandler(req, res) {
   res.status(200).json({
     message: `Welcome to the ${process.env.DEPLOYMENT} environment API of fitness time!`,
   });
+});
+
+server.post("/email", function rootHandler(req, res) {
+  const { name, email, message } = req.body;
+
+  if (email && name && message) {
+    webmoTransporter.sendMail({
+      from: webmoSender,
+      to: email,
+      bcc: webmoSender,
+      subject: "Fitness Time Email",
+      text: "We have received your message " + message,
+      html: "<h3>We have received your message</h3><br>" + message,
+    });
+    res.status(200).json({
+      message: `EMAIL SENT!`,
+    });
+  } else {
+    res.status(400).json({
+      message: `Please fill out all fields!`,
+    });
+  }
 });
 
 const UsersRouter = require("./api/resources/users/users-router");
