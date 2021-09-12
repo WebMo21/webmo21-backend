@@ -12,6 +12,6 @@ router.get(
 );
 router.post("/", authorizeUser, controller.addWorkout);
 router.put("/", authorizeUser, controller.updateWorkout);
-router.delete("/:id", controller.deleteWorkout);
+router.delete("/:id", authorizeUser, controller.deleteWorkout);
 
 module.exports = router;
