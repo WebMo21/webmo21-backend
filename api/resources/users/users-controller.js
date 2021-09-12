@@ -208,7 +208,6 @@ const deleteUserByEmail = (req, res) => {
 // Compliant with https://next-auth.js.org/providers/credentials#example
 const loginAsAdmin = (req, res) => {
   const adminLoginDTO = ({ username, password } = req.body);
-  console.log("BODY", req.body);
 
   if (username && password) {
     usersService
