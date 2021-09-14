@@ -8,6 +8,8 @@ A lightweight backend enabling users scheduling and organization of fitness acti
 
 🎨 [VISIT FRONTEND REPOSITORY](https://github.com/WebMo21/webmo21-frontend)
 
+📱  [VISIT MOBILE APP REPOSITORY](https://github.com/WebMo21/webmo21-mobile)
+
 ![Alt Text](./assets/img/backend-code-and-route-preview.gif)
 
 ## ✨ Features
